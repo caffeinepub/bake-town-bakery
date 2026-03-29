@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Brand colors */
+    --brand-yellow: 0.82 0.165 88;
+    --brand-dark: 0.09 0 0;
+    --brand-light: 0.97 0.003 240;
+
+    /* Light mode (used in menu/reviews sections) */
+    --background: 0.97 0.003 240;
+    --foreground: 0.09 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.09 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.09 0 0;
+    --primary: 0.82 0.165 88;
+    --primary-foreground: 0.09 0 0;
+    --secondary: 0.15 0 0;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.92 0 0;
+    --muted-foreground: 0.42 0 0;
+    --accent: 0.82 0.165 88;
+    --accent-foreground: 0.09 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.92 0 0;
+    --input: 0.88 0 0;
+    --ring: 0.82 0.165 88;
+    --chart-1: 0.82 0.165 88;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.82 0.165 88;
+    --sidebar-primary-foreground: 0.09 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.82 0.165 88;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@layer utilities {
+  .section-dark {
+    background-color: oklch(0.09 0 0);
+    color: white;
+  }
+  .section-darker {
+    background-color: oklch(0.07 0 0);
+    color: white;
+  }
+  .section-light {
+    background-color: oklch(0.97 0.003 240);
+    color: oklch(0.09 0 0);
+  }
+  .text-brand-yellow {
+    color: oklch(0.82 0.165 88);
+  }
+  .bg-brand-yellow {
+    background-color: oklch(0.82 0.165 88);
+  }
+  .border-brand-yellow {
+    border-color: oklch(0.82 0.165 88);
+  }
+  .ring-brand-yellow {
+    --tw-ring-color: oklch(0.82 0.165 88);
+  }
+
+  /* Scroll reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+
+  /* Pulse animation for WhatsApp button */
+  @keyframes wa-pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 oklch(0.82 0.165 88 / 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 12px oklch(0.82 0.165 88 / 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 oklch(0.82 0.165 88 / 0);
+    }
+  }
+  .wa-pulse {
+    animation: wa-pulse 2s infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+  .animate-delay-800 {
+    animation-delay: 0.8s;
+    opacity: 0;
+  }
+}
